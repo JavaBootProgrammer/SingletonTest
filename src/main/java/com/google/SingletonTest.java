@@ -7,18 +7,27 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SingletonTest {
 
     public static void main(String[] args) {
+
+
+//        ---------SingletonEagerInitialization----------------
         SpringApplication.run(SingletonTest.class, args);
+//
+//        SingletonEagerInitialization singletonTest = SingletonEagerInitialization.getInstance();
+//        System.out.println(singletonTest.hashCode());
+//
+//        System.out.println("-------------------------");
+//        SingletonEagerInitialization singletonTest2 = SingletonEagerInitialization.getInstance();
+//        System.out.println(singletonTest2.hashCode());
+//        System.out.println("-------------------------");
+//        System.out.println(singletonTest2.hashCode()==singletonTest.hashCode());
 
-        Singleton singletonTest = Singleton.getInstance();
-        System.out.println(singletonTest.hashCode());
+        SingletonLazyInitialization singletonLazyInitialization = SingletonLazyInitialization.getInstance();
+        System.out.println(singletonLazyInitialization.hashCode());
 
-        System.out.println("-------------------------");
-        Singleton singletonTest2 = Singleton.getInstance();
-        System.out.println(singletonTest2.hashCode());
-        System.out.println("-------------------------");
-        System.out.println(singletonTest2.hashCode()==singletonTest.hashCode());
+        SingletonLazyInitialization singletonLazyInitialization2 = SingletonLazyInitialization.getInstance();
+        System.out.println(singletonLazyInitialization2.hashCode());
 
-
+        System.out.println(singletonLazyInitialization == singletonLazyInitialization2);
     }
 
 }
